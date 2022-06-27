@@ -1,0 +1,43 @@
+<div class="container outerDiv">
+  <div class="text-center displayFlex">
+    <input
+      class="form-control margin-4"
+      type="file"
+      accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"
+      (change)="onChange($event)"
+    />
+
+    <button (click)="onUpload()" class="btn btn-success margin-4">
+      Upload
+    </button>
+  </div>
+
+  <!-- Shareable short link of  uoloaded file -->
+  <div class="container text-center">
+    <table id="customers">
+      <tr>
+        <th>File</th>
+        <th>Number of Rows</th>
+        <th>Number of Attributes</th>
+        <th>Mini Rule Length</th>
+        <th>Max Rule Length</th>
+        <th>Number of Rules</th>
+        <th>Rules Uniqueness</th>
+      </tr>
+      <tr>
+        <td>{{ fileName }}</td>
+        <td>{{ numberOfRows }}</td>
+        <td>{{ numberOfAttributes }}</td>
+        <td>{{minimumRuleLength}}</td>
+        <td>{{maximumRuleLength}}</td>
+        <td>{{rulesLength}}</td>
+        <td>{{ruleUniqueness}}</td>
+      </tr>
+    </table>
+  </div>
+
+  <!--Flag variable is used here-->
+  <div class="container" *ngIf="loading">
+    <h3>Loading ...</h3>
+  </div>
+</div>
